@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :posts
+  
+  get 'dashboard', to: 'admin#index'
+  
+  
 end
