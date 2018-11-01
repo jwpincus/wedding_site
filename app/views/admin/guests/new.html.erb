@@ -1,5 +1,10 @@
-<%= form_tag({controller: "admin/guests", action: :create}, multipart: true) do %>
-  <%= label_tag :guests_csv, 'Upload Your Guest List' %>
-  <%= file_field_tag :guests_csv %>
+<div class="container-fluid">
+  <%= form_tag({controller: "admin/guests", action: :create}, multipart: true) do %>
+  <div class="form-group">
+    <%= label_tag :guests_csv, 'Upload Your Guest List' %>
+    <%= file_field_tag :guests_csv, class: 'form-control' %>
+  </div>
   <%= submit_tag 'Submit' %>
-<% end %>
+  <% end %>
+  
+</div>
