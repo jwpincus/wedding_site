@@ -8,7 +8,8 @@ class AdminController < ApplicationController
   private
   
   def is_admin
-    if @current_user && !@current_user.is_admin
+    @current_user = current_user
+    if !@current_user || !@current_user.is_admin
       redirect_to root_path
     end
   end

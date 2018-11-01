@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   
   get 'dashboard', to: 'admin#index'
   
+  namespace :admin do
+    resources :guests
+  end
   
 end

@@ -23,9 +23,11 @@ FactoryBot.define do
   end
   
   factory :user do
-    
+    is_admin true
     name "test"
     email "test@email.com"
     password "password"
+    
+    
   end
 end

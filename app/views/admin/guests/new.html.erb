@@ -1,0 +1,5 @@
+<%= form_tag({controller: "admin/guests", action: :create}, multipart: true) do %>
+  <%= label_tag :guests_csv, 'Upload Your Guest List' %>
+  <%= file_field_tag :guests_csv %>
+  <%= submit_tag 'Submit' %>
+<% end %>
