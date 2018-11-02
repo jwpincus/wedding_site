@@ -1,4 +1,9 @@
 FactoryBot.define do
+
+  factory :message do
+    body "MyText"
+    subject "MyString"
+  end
   factory :plus_one do
     name "Jan Jones"
     email "jan@mail.com"
