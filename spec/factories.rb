@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :message do
-    body "MyText"
-    subject "MyString"
+    body "<div>Body</div><div><strong>BOdy bold</strong></div><h1><strong>Body Large Bold</strong></h1><div><br></div><ul><li>Bullets</li></ul>"
+    subject "Test Subject"
   end
   factory :plus_one do
     name "Jan Jones"

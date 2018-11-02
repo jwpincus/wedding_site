@@ -22,5 +22,24 @@
       <% end %>
     </tbody>
   </table>
+  <h1>Messages</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Subject</th>
+        <th scope="col">Sent?</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @messages.each do |m| %>
+        <tr>
+          <td><%= m.subject %> </td>
+          <td><%= m.sent_on ? m.sent_on.to_s : 'draft' %> </td>
+          <td><%= link_to 'Edit', admin_message_path(m) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

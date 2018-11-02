@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   
   def index
     @guests = Guest.all
+    @messages = Message.all
   end
   
   private

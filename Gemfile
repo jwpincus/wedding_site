@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'trix'
+gem 'mailgun-ruby'
+gem 'figaro'
 
 group :development, :test do
   gem 'rspec-rails'

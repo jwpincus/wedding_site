@@ -1,0 +1,12 @@
+<div class="container align-items-center">
+  <div class="col">
+    <h1>Message Preview</h1>
+    <p>Subject: <%= @message.subject %> </p>
+    <div class="email-preview jumbotron">
+      <%= raw @message.body %>
+    </div>
+    
+  </div>  
+  <a href="?preview=1"><button type="button" class="btn btn-primary">Send test email to self</button></a>
+</div>
+

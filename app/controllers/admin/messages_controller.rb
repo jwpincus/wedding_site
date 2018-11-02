@@ -5,10 +5,18 @@ class Admin::MessagesController < AdminController
     @message = Message.new
   end
   
-  def create
-    Message.create(message_params)
-    redirect_to dashboard_path
+  def show
+    @message = Message.find(params[:id])
+    if params[:preview]
+      response = MessageMailer.send_message(@message, Guest.new(email: current_user.email, name: current_user.name)).deliver_now
+    end
   end
+  
+  def create
+    message = Message.create(message_params)
+    redirect_to admin_message_path(message)
+  end
+  
   
   private
   
