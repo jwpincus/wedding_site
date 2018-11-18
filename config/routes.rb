@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   get 'dashboard', to: 'admin#index'
-  
+  get 'rsvp', to: 'guests#edit'
+
   namespace :admin do
     resources :guests
     resources :messages
   end
-  
-  resources :articles
-  get '/stories', to: redirect('/articles')
-  
+
+  resources :guests, only: [:update]
+
 end

@@ -5,7 +5,7 @@ class Guest < ApplicationRecord
   belongs_to :primary_guest, class_name: 'Guest', optional: true
   has_many :plus_ones, class_name: 'Guest', :foreign_key => 'guest_id'
   accepts_nested_attributes_for :plus_ones
-  enum will_attend: [:no, :reception_only, :attend_both]
+  enum will_attend: ['not attending', 'saturday reception only', 'attend friday and saturday']
 
   def name
     "#{first_name} #{last_name}"

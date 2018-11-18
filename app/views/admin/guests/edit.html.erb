@@ -12,6 +12,7 @@
       <%= f.label 'Email' %>
       <%= f.text_field :email, class: "form-control" %>
     </div>
+    <h2>Other Guests in your party</h2>
     <%= f.fields_for :plus_ones do |ff| %>
     <div class="form-group">
       <%= ff.label 'First Name' %>
