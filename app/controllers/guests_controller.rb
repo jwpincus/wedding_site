@@ -1,12 +1,22 @@
 class GuestsController < ApplicationController
 
   def edit
-    @guest = Guest.find_by_email(params[:email]) || Guest.new
+    @guest = Guest.find_by_email(params[:email])
+    if !@guest
+      flash[:success] = "There was some trouble finding your RSVP, get in touch with Jack or Cayley"
+      redirect_to root_path
+    end
   end
 
   def update
-    Guest.update(guest_params)
-    flash[:success] = 'Your information was saved, thanks for updating us!'
+    guest = Guest.find_by_email(params[:guest][:email])
+    if guest && guest.update(guest_params)
+      flash[:success] = 'Your information was saved, thanks for updating us!'
+      redirect_to root_path
+    else
+      flash[:success] = "There was some trouble saving your info, make sure that name and email fields are filled out."
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 

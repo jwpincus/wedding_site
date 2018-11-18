@@ -13,9 +13,9 @@ class MessageMailer < ApplicationMailer
     end
 
     @body = message.body
+    @email = recpient.email
 
-    recipients = recipient.all_emails
 
-    mail to: recipients, subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
+    mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
   end
 end
