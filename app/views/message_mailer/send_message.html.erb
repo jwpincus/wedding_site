@@ -2,5 +2,5 @@
   <h1>Dear <%= @name %> </h1>
   <%= raw @body %>
 
-  <p><%= link_to 'RSVP Here!', rsvp_path(email: @email) %> | <%= link_to 'Website', root_path %></p>
+  <p><%= link_to 'RSVP Here!', rsvp_url(email: @email) %></p>
 </section>

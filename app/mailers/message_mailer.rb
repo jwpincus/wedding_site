@@ -13,7 +13,7 @@ class MessageMailer < ApplicationMailer
     end
 
     @body = message.body
-    @email = recpient.email
+    @email = recipient.email
 
 
     mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
