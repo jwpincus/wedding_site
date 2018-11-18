@@ -7,15 +7,15 @@ class MessageMailer < ApplicationMailer
   #
   def send_message(message, recipient)
     if recipient.plus_ones.count > 0
-      @name = ([recipient.name] + [recipient.plus_ones.pluck(:name)]).join(", ")
-    else 
+      @name = ([recipient.name] + [recipient.plus_ones.map(&:name)]).flatten.join(" and ")
+    else
       @name = recipient.name
     end
-    
+
     @body = message.body
-    
+
     recipients = recipient.all_emails
-    
-    mail to: recipient.email, subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
+
+    mail to: recipients, subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
   end
 end

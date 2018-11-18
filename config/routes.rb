@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :posts
-  
   get 'dashboard', to: 'admin#index'
   
   namespace :admin do
     resources :guests
     resources :messages
   end
+  
+  resources :articles
+  get '/stories', to: redirect('/articles')
   
 end
