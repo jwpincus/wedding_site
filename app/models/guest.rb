@@ -1,6 +1,5 @@
 class Guest < ApplicationRecord
   validates_presence_of :first_name
-  validates_uniqueness_of :email
   has_many :guest_messages
   has_many :messages, through: :guest_messages
   belongs_to :primary_guest, class_name: 'Guest', optional: true
