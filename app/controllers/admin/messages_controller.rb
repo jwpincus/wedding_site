@@ -22,7 +22,8 @@ class Admin::MessagesController < AdminController
   end
 
   def update
-    Message.update(message_params)
+    message = Message.update(message_params)
+    redirect_to admin_message_path(message)
   end
 
   private

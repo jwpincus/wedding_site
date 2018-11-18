@@ -1,19 +1,35 @@
 <div class="container">
   <%= form_for @guest, url: admin_guest_path(@guest) do |f|%>
-    <div class="form-group">
-      <%= f.label 'First Name' %>
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label 'Last Name' %>
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label 'Email' %>
-      <%= f.text_field :email, class: "form-control" %>
-    </div>
-    <h2>Other Guests in your party</h2>
-    <%= f.fields_for :plus_ones do |ff| %>
+  <div class="form-group">
+    <%= f.label 'First Name' %>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Last Name' %>
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Email' %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'I am planning on attending:' %>
+    <%= f.select :will_attend, Guest.will_attends.keys, {include_blank: true}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'I will be camping at the wedding site:' %>
+    <%= f.check_box :will_camp, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Are there any dietary restrictions that we should be aware of:' %>
+    <%= f.text_field :dietary_restrictions, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'What is one song that should be played at every wedding?' %>
+    <%= f.text_field :song, class: "form-control" %>
+  </div>
+  <%= f.fields_for :plus_ones do |ff| %>
+    <h2>Additional Guests in your party</h2>
     <div class="form-group">
       <%= ff.label 'First Name' %>
       <%= ff.text_field :first_name, class: "form-control" %>
@@ -26,7 +42,19 @@
       <%= ff.label 'Email' %>
       <%= ff.text_field :email, class: "form-control" %>
     </div>
-    <% end %>
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <div class="form-group">
+      <%= f.label 'I am planning on attending:' %>
+      <%= f.select :will_attend, Guest.will_attends.keys, {include_blank: true}, {class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= ff.label 'Are there any dietary restrictions that we should be aware of:' %>
+      <%= ff.text_field :dietary_restrictions, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= ff.label 'What is one song that should be played at every wedding?' %>
+      <%= ff.text_field :song, class: "form-control" %>
+    </div>
+  <% end %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 </div>

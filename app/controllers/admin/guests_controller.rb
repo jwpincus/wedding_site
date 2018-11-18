@@ -11,7 +11,7 @@ class Admin::GuestsController < AdminController
     CSV.foreach(csv_guest_params.path) do |row|
       guest = Guest.find_or_create_by(first_name: row[0].strip.titleize, last_name: row[1].strip.titleize,  email: row[2])
       if !row[3].blank?
-        guest.plus_ones.create(first_name: row[3].strip.titleize, last_name: row[4].strip.titleize, email: row[5])
+        guest.plus_ones.create(first_name: row[3].strip.titleize, last_name: row[4], email: row[5])
       end
     end
     redirect_to dashboard_path
@@ -34,7 +34,7 @@ class Admin::GuestsController < AdminController
   end
 
   def guest_params
-    params.require(:guest).permit(:name, :email, plus_ones_attributes: [:id, :name, :email])
+    params.require(:guest).permit(:first_name, :last_name, :email, :will_attend, :will_camp, :dietary_restrictions, :song, plus_ones_attributes: [:id, :first_name, :last_name, :email, :will_attend, :will_camp, :dietary_restrictions, :song])
   end
 
 end
