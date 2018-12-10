@@ -11,7 +11,7 @@ class Admin::GuestsController < AdminController
     CSV.foreach(csv_guest_params.path) do |row|
       guest = Guest.find_or_create_by(first_name: row[0].strip.titleize, last_name: row[1].strip.titleize,  email: row[2].strip.downcase)
       if !row[3].blank?
-        guest.plus_ones.create(first_name: row[3].strip.titleize, last_name: row[4], email: row[5].strip.downcase)
+        guest.plus_ones.create(first_name: row[3].strip.titleize, last_name: (row[4]? row[4].strip.downcase : ''), email: (row[5]? row[5].strip.downcase : ''))
       end
     end
     redirect_to dashboard_path
