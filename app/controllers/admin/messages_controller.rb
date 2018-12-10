@@ -8,7 +8,11 @@ class Admin::MessagesController < AdminController
   def show
     @message = Message.find(params[:id])
     if params[:preview]
-      response = MessageMailer.send_message(@message, Guest.new(email: current_user.email, first_name: current_user.name)).deliver_now
+      MessageMailer.send_message(@message, Guest.new(email: current_user.email, first_name: current_user.name)).deliver_now
+    elsif params[:send_all]
+      Guest.each do |guest|
+        MessageMailer.send_message(@message, guest).deliver_later!
+      end
     end
   end
 

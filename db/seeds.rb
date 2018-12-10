@@ -13,6 +13,12 @@ User.create(
   password: 'password',
   password_confirmation: 'password',
 )
+User.create(
+  name: 'Cayley Coulbourn',
+  email: 'cayley_coulbourn@gmail.com',
+  password: 'password',
+  password_confirmation: 'password',
+)
 
 guest = Guest.create(
   first_name: 'Jack',

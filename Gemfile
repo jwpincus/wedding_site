@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'trix'
 gem 'mailgun-ruby'
 gem 'figaro'
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'rspec-rails'
