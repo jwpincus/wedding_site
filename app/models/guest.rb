@@ -11,4 +11,15 @@ class Guest < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def all_names
+    names_array = [first_name]
+    if primary_guest
+      names_array << primary_guest.first_name
+    end
+    if plus_ones
+      names_array << plus_ones.pluck(:first_name)
+    end
+    return names_array.flatten.join(' ,')
+  end
+
 end

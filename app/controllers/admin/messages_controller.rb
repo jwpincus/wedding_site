@@ -10,7 +10,7 @@ class Admin::MessagesController < AdminController
     if params[:preview]
       MessageMailer.send_message(@message, Guest.new(email: current_user.email, first_name: current_user.name)).deliver_now
     elsif params[:send_all]
-      Guest.all.each do |guest|
+      Guest.where.not(email: '').each do |guest|
         MessageMailer.send_message(@message, guest).deliver_later!
       end
     end

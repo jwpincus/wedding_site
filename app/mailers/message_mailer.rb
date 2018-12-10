@@ -7,7 +7,7 @@ class MessageMailer < ApplicationMailer
   #
   def send_message(message, recipient)
     if recipient.plus_ones && recipient.plus_ones.count > 0
-      @name = ([recipient.name] + [recipient.plus_ones.map(&:name)]).flatten.join(" and ")
+      @name = recipient.all_names
     else
       @name = recipient.name
     end
