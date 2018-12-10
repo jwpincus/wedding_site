@@ -43,8 +43,8 @@
       <%= ff.text_field :email, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label 'I am planning on attending:' %>
-      <%= f.select :will_attend, Guest.will_attends.keys, {include_blank: true}, {class: "form-control"} %>
+      <%= ff.label 'I am planning on attending:' %>
+      <%= ff.select :will_attend, Guest.will_attends.keys, {include_blank: true}, {class: "form-control"} %>
     </div>
     <div class="form-group">
       <%= ff.label 'Are there any dietary restrictions that we should be aware of:' %>
