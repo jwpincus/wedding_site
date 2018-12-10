@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_action :is_admin
 
   def index
-    @guests = Guest.where(guest_id: nil)
+    @guests = Guest.where(guest_id: nil).order(:will_attend)
     @messages = Message.all
   end
 
