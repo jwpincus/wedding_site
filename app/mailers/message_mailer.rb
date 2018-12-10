@@ -6,11 +6,7 @@ class MessageMailer < ApplicationMailer
   #   en.message_mailer.send_message.subject
   #
   def send_message(message, recipient)
-    if recipient.plus_ones && recipient.plus_ones.count > 0
-      @name = recipient.all_names
-    else
-      @name = recipient.name
-    end
+    @name = recipient.all_names
 
     @body = message.body
     @email = recipient.email
