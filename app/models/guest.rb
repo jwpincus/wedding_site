@@ -19,7 +19,7 @@ class Guest < ApplicationRecord
     if plus_ones
       names_array << plus_ones.pluck(:first_name)
     end
-    return names_array.flatten.join(' ,')
+    return names_array.flatten.join(' and ')
   end
 
 end
