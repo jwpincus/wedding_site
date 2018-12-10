@@ -29,5 +29,5 @@ guest = Guest.create(
 guest.plus_ones.create(
   first_name: 'Cayley',
   last_name: 'Coulbourn',
-  email: 'cayley_coulbourn@gmail.com'
+  email: 'cayleycoulbourn@gmail.com'
 )
