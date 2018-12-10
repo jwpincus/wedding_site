@@ -5,6 +5,7 @@ class MessageMailer < ApplicationMailer
   #
   #   en.message_mailer.send_message.subject
   #
+
   def send_message(message, recipient)
     @name = recipient.all_names
 
@@ -12,6 +13,6 @@ class MessageMailer < ApplicationMailer
     @email = recipient.email
 
 
-    mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>'
+    mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>', :reply_to => 'cayleycoulbourn@gmail.com'
   end
 end
