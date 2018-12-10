@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 
   def edit
     @guest = Guest.find_by_email(params[:email])
+    @guest = @guest.primary_guest if @guest.primary_guest
     if !@guest
       flash[:success] = "There was some trouble finding your RSVP, get in touch with Jack or Cayley"
       redirect_to root_path
