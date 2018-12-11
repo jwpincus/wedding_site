@@ -2,12 +2,14 @@
   <h1>Guest Dashboard</h1>
   <a href="/admin/guests/new" class='col'><button type="button" class="btn btn-primary">Upload Guest List</button></a>
   <a href="/admin/messages/new" class='col'><button type="button" class="btn btn-primary">Compose Email</button></a>
+  <p> <h1><%= @attending_count %> attending</h1> </p>
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Plus One</th>
+        <th scope="col">Will Attend</th>
         <th scope="col">Edit</th>
       </tr>
     </thead>
@@ -17,6 +19,7 @@
           <td><%= guest.name %> </td>
           <td><%= guest.email %> </td>
           <td><%= guest.plus_ones.pluck(:first_name).join(', ') %> </td>
+          <td><%= guest.will_attend %> </td>
           <td> <%= link_to 'edit', edit_admin_guest_path(guest) %> </td>
         </tr>
       <% end %>
