@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   def index
     @guests = Guest.where(guest_id: nil).order(:will_attend)
     @messages = Message.all
-    @attending_count = Guest.where.not(will_attend: 'not attending')
+    @attending_count = Guest.where.not(will_attend: 'not attending').count
   end
 
   private
