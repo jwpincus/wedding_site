@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-color: #ffe69b;
+  background-color: white;
 }
 
  .background {
@@ -30,7 +31,15 @@ body {
   z-index: 1;
 }
 
-.main__title * {
-    background-color: rgba(256,256,256,0.7)
+.main_50_width {
+  width: 50%;
+  font-size: 1.5rem;
+  margin:auto;
+  text-align: left;
+  font-weight: bold;
 }
 
+.main__title p, h1, h2 {
+    background-color: rgba(256,256,256,0.7);
+    overflow: scroll;
+}
