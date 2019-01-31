@@ -13,6 +13,6 @@ class MessageMailer < ApplicationMailer
     @email = recipient.email
 
 
-    mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <Invites@invites.cayleyandjack.com>', :reply_to => 'cayleycoulbourn@gmail.com'
+    mail to: recipient.email , subject: message.subject, from: 'Cayley and Jack <jwpincus@gmail.com>', :reply_to => 'jwpincus@gmail.com'
   end
 end
