@@ -37,9 +37,10 @@ body {
   margin:auto;
   text-align: left;
   font-weight: bold;
+  overflow: scroll;
 }
 
 .main__title p, h1, h2 {
     background-color: rgba(256,256,256,0.7);
-    overflow: scroll;
+
 }

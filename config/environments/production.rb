@@ -90,11 +90,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.mailgun.org",
-   :user_name            => "postmaster@invites.cayleyandjack.com",
+   :address              => "smtp.gmail.org",
+   :user_name            => "jwpincus@gmail.com",
    :password             => ENV['mailgun_password'],
    :authentication       => "plain",
-   :port                 => 587
+   :port                 => 587,
+   :enable_starttls_auto => true
   }
 
 end
