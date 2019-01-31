@@ -90,7 +90,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.org",
+   :address              => "smtp.gmail.com",
    :user_name            => "jwpincus@gmail.com",
    :password             => ENV['mailgun_password'],
    :authentication       => "plain",
